@@ -1,7 +1,12 @@
-# SimAware
+# SimAwareFork - A Fork of SimAware
 
-SimAware is a Microsoft Flight Simulator 2020 rich presence implementation for Discord.
+## Description
 
-As of the 3rd of December 2020, the app is now open source and free for your unrestricted use!
+SimAwareFork is a fork of SimAware, a Discord Rich Presence implementation for Microsoft Flight
+Simulator 2020. My version contains a minor change to the code in order for the application to
+display only your altitude and ground speed (in both knots and mph).
 
-- Arvin
+## Credits
+
+- Arvin - For creating the program.
+- Josh (105hua) - Minor Modifications.
