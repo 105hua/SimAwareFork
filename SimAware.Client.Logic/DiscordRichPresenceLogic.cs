@@ -155,30 +155,15 @@ namespace SimAware.Client.Logic
                             }
                         }
 
-                        var tooltip = callsign;
-                        var details = string.Empty;
-                        if(!string.IsNullOrEmpty(airport))
-                        {
-                            tooltip += " Near " + airport;
-                        }
-                        if(!string.IsNullOrEmpty(icao))
-                        {
-                            details += $" Near {icao}";
-                            tooltip += $" ({icao})";
-                        }
-                        if(!string.IsNullOrEmpty(country))
-                        {
-                            details += $", {country}";
-                            tooltip += $" in {country}";
-                        }
-                        
+                        #region Section modified by 105hua.
 
+                        var tooltip = callsign;
 
                         discordRpcClient.SetPresence(new RichPresence
                         {
-                            Details = details.Trim(),
-                            State = status.IsOnGround ? "Currently on the Ground" : $"Alt {Math.Round(status.Altitude)}ft, {Math.Round(status.IndicatedAirSpeed)}kt",
-                           
+                            Details = status.IsOnGround ? "Currently on the Ground" : $"Altitude: {Math.Round(status.Altitude)}ft",
+                            State = $"Speed: {Math.Round(status.GroundSpeed)}kt ({Math.Round(status.GroundSpeed * 1.151)}mph)",
+
                             Assets = new Assets
                             {
                                 LargeImageKey = "icon_large",
@@ -186,6 +171,9 @@ namespace SimAware.Client.Logic
                             },
                             Timestamps = groundStateChanged
                         });
+
+                        #endregion
+
                     }
                     catch (Exception) { }
 
