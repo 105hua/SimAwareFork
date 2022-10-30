@@ -162,7 +162,7 @@ namespace SimAware.Client.Logic
                         discordRpcClient.SetPresence(new RichPresence
                         {
                             Details = status.IsOnGround ? "Currently on the Ground" : $"Altitude: {Math.Round(status.Altitude)}ft",
-                            State = $"Speed: {Math.Round(status.GroundSpeed)}kt ({Math.Round(status.GroundSpeed * 1.151)}mph)",
+                            State = $"Speed: {Math.Round(status.IndicatedAirSpeed)}kt ({Math.Round(status.GroundSpeed * 1.151)}mph)",
 
                             Assets = new Assets
                             {
